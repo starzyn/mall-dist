@@ -1,0 +1,75 @@
+package ${package.Controller};
+
+import com.isyscore.boot.mybatis.PageRequest;
+import com.isyscore.device.common.validation.ValidateCreate;
+import com.isyscore.device.common.validation.ValidateUpdate;
+import com.isyscore.os.core.entity.${table.entityName};
+import com.isyscore.os.core.service.${table.serviceName};
+import org.springframework.http.MediaType;
+import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
+import javax.validation.groups.Default;
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * $!{table.comment}
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequiredArgsConstructor
+@RequestMapping("/api/#if(${package.ModuleName})${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+
+    private final ${table.serviceName} $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}Service;
+
+    @GetMapping("/{id}")
+    public ${table.entityName} get(@PathVariable Long id) {
+        return $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}Service.getById(id);
+    }
+
+    @GetMapping
+    public IPage<${table.entityName}> page(${table.entityName} $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}, PageRequest page) {
+        return $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}Service.page(page.toPage(), new QueryWrapper<>($!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}));
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean create(@Validated({ValidateCreate.class, Default.class}) @RequestBody ${table.entityName} $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}) {
+        return $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}Service.save($!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)});
+    }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean update(@Validated({ValidateUpdate.class, Default.class}) @RequestBody ${table.entityName} $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}) {
+        return $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}Service.updateById($!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)});
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable Long id) {
+        return $!{table.entityName.substring(0, 1).toLowerCase()}$!{table.entityName.substring(1)}Service.removeById(id);
+    }
+}
+#end

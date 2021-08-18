@@ -1,0 +1,10 @@
+jdbcUrl=jdbc:mysql://10.30.30.25:23306/isc_things?useUnicode=true&useSSL=false&characterEncoding=utf8
+driverName=com.mysql.jdbc.Driver
+username=isyscore
+password=Isysc0re
+
+servicePrefix=isc-etl
+serviceSuffix=-service
+persistentPrefix=isc-data-factory-core
+basePackage=com.isyscore.os
+tablePrefix=etl
