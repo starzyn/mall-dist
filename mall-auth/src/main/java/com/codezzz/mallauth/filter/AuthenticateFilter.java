@@ -78,6 +78,8 @@ public class AuthenticateFilter implements GlobalFilter, Ordered {
                 e.printStackTrace();
             }
         }
+
+
         return chain.filter(exchange);
     }
 
