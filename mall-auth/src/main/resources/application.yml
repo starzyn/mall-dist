@@ -1,0 +1,13 @@
+server:
+  port: 20001
+
+spring:
+  application:
+    name: mall-auth
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:jwt.jks
+
+version: @pom.version@
