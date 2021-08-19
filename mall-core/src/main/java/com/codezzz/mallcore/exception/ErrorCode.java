@@ -18,6 +18,7 @@ public enum ErrorCode implements BaseErrorCode {
     PARAM_ERROR(100, "您提交的数据不符合要求", ErrorGroup.GENERAL),
     LOGIN_REQUIRED(101, "请(重新)登录", ErrorGroup.GENERAL),
     AUTHORIZATION_REQUIRED(102, "您没有执行该操作的权限", ErrorGroup.GENERAL),
+    AUTHENTICATION_FAILED(112, "请登陆", ErrorGroup.GENERAL),
     MISSING_SERVLET_REQUEST_PARAMETER(103, "不能为空", ErrorGroup.GENERAL),
     PATH_PARAM_DATA_TYPE_ERROR(104, "路径参数数据类型出错", ErrorGroup.GENERAL),
     INPUT_PARAM_ILLEGAL(105, "入参非法,请检查输入参数或格式", ErrorGroup.GENERAL),

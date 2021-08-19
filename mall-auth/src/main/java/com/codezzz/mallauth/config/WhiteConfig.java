@@ -1,8 +1,10 @@
 package com.codezzz.mallauth.config;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,9 +13,11 @@ import java.util.List;
  * @date 2021/8/18 19:43
  */
 
-@ConfigurationProperties(prefix = "mall.url.ignore")
+@ConfigurationProperties(prefix = "mall.white")
 @Component
+@Data
 public class WhiteConfig {
-    private List<String> whiteUrls;
+
+    private List<String> path = new ArrayList<>();
 
 }

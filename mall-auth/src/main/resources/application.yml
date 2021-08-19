@@ -4,10 +4,20 @@ server:
 spring:
   application:
     name: mall-auth
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          public-key-location: classpath:jwt.jks
+  cloud:
+    gateway:
+      routes: #配置路由路径
+        - id: mall-auth
+          uri: http://localhost:20001
+          predicates:
+            - Path=/mall-auth/**
+          filters:
+            - StripPrefix=1
 
 version: @pom.version@
+
+mall:
+  white:
+    path:
+#      - /mall-auth/test/**
+      - /**/favicon.ico
