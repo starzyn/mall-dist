@@ -1,0 +1,18 @@
+server:
+  port: 20002
+
+spring:
+  application:
+    name: mall-user
+  datasource:
+    url: jdbc:mysql://localhost:3306/mall-dist?useUnicode=true&useSSL=false&characterEncoding=utf8=com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+swagger:
+  basePackage: com.codezzz.malluser.controller
+
+service-name: gateway
+
+service-prefix: api/${service-name}
