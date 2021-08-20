@@ -1,0 +1,35 @@
+server:
+  port: 20001
+
+spring:
+  application:
+    name: mall-gateway
+#  cloud:
+#    gateway:
+#      routes: #配置路由路径
+#        - id: mall-gateway
+#          uri: http://localhost:20001
+#          predicates:
+#            - Path=/mall-gateway/**
+#          filters:
+#            - StripPrefix=1
+
+version: @pom.version@
+
+service-name: gateway
+
+service-prefix: api/${service-name}
+
+mall:
+  white:
+    path:
+      - /mall-gateway/${service-prefix}/login
+      - /doc.html
+      - /swagger-resources/**
+      - /swagger/**
+      - /**/v2/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /webjars/springfox-swagger-ui/**

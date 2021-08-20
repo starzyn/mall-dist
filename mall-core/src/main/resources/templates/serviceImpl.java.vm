@@ -1,4 +1,4 @@
-package com.isyscore.os.core.service.impl;
+package com.codezzz.mallcore.service.impl;
 
 import ${superServiceImplClassPackage};
 import com.isyscore.os.core.mapper.${table.mapperName};

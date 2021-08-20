@@ -1,6 +1,6 @@
-package com.isyscore.os.core.service;
+package com.codezzz.mallcore.service;
 
-import com.isyscore.os.core.entity.${entity};
+import com.codezzz.mallcore.model.entity.${entity};
 import ${superServiceClassPackage};
 
 /**

@@ -4,7 +4,8 @@ import com.google.common.base.Predicate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.ResponseEntity;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -23,9 +24,12 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    @Value("${swagger.basePackage}")
+    private String basePackage = "com.codezzz";
+
     private ApiInfo initApiInfo() {
-        ApiInfo apiInfo = new ApiInfo("ezTest Platform API",//大标题
-                initContextInfo(),//简单的描述
+        ApiInfo apiInfo = new ApiInfo("分布式商城 API",//大标题
+                "分布式商城",//简单的描述
                 "0.1",//版本
                 "服务条款",
                 "codezzz",//作者
@@ -36,28 +40,18 @@ public class SwaggerConfig {
         return apiInfo;
     }
 
-    private String initContextInfo() {
-        StringBuffer sb = new StringBuffer();
-        sb.append("接口测试管理平台")
-                .append("<br/>")
-                .append("主要解决在版本迭代过程中对于旧版接口是否稳定，新版本是否对向上版本进行兼容的问题");
-
-        return sb.toString();
-    }
-
 
     @Bean
     public Docket restfulApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("ezTest-service")
-//                .genericModelSubstitutes(DeferredResult.class)
-                .genericModelSubstitutes(ResponseEntity.class)
-                .useDefaultResponseMessages(true)
-                .forCodeGeneration(false)
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(initApiInfo())
+                .enable(true)
                 .select()
-                .paths(doFilteringRules())
-                .build()
-                .apiInfo(initApiInfo());
+                .apis(RequestHandlerSelectors.basePackage(basePackage))
+                .paths(PathSelectors.any())
+                .build();
+
+        return docket;
     }
 
     /**

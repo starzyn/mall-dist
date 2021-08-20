@@ -8,7 +8,6 @@ import com.codezzz.mallcore.model.dto.RespDTO;
 import com.nimbusds.jose.JWSObject;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.tomcat.util.http.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -78,7 +77,6 @@ public class AuthenticateFilter implements GlobalFilter, Ordered {
                 e.printStackTrace();
             }
         }
-
 
         return chain.filter(exchange);
     }

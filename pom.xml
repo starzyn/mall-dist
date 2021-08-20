@@ -17,7 +17,8 @@
 
     <modules>
         <module>mall-core</module>
-        <module>mall-auth</module>
+        <module>mall-gateway</module>
+        <module>mall-user</module>
     </modules>
 
     <properties>

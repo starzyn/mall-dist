@@ -150,7 +150,7 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.isyscore.common.model.BaseEntity");
+//        strategy.setSuperEntityClass("com.isyscore.common.model.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         strategy.setLogicDeleteFieldName("deleted");//逻辑删除

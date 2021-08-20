@@ -1,10 +1,8 @@
-package com.isyscore.os.core.entity;
+package com.codezzz.mallcore.model.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.isyscore.device.common.validation.ValidateCreate;
-import com.isyscore.device.common.validation.ValidateUpdate;
 #foreach($pkg in ${table.importPackages})
 import ${pkg};
 #end
