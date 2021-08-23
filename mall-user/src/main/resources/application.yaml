@@ -9,6 +9,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+  redis:
+    host: http://localhost
+    port: 6379
+    database: 0
+    password: root
 
 swagger:
   basePackage: com.codezzz.malluser.controller

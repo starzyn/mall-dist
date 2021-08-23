@@ -1,7 +1,10 @@
 package com.codezzz.malluser.controller;
 
 import com.codezzz.mallcore.model.dto.RespDTO;
+import com.codezzz.mallcore.util.ValidationUtils;
 import com.codezzz.malluser.constant.UserConstant;
+import com.codezzz.malluser.controller.vo.LoginForm;
+import com.codezzz.malluser.service.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -9,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Validation;
+import javax.validation.Validator;
 import java.util.Objects;
 
 /**
@@ -23,7 +28,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class LoginController {
 
-    private final RedisTemplate redisTemplate;
+    private final LoginService loginService;
 
     @ApiOperation("登陆")
     @PostMapping
@@ -31,13 +36,17 @@ public class LoginController {
                                  @RequestParam("value") @ApiParam("密码/验证码") String value,
                                  @RequestParam("type") @ApiParam("登陆类型") String type,
                                  @RequestParam("clientId") @ApiParam("客户端ID") String clientId) {
+        LoginForm loginForm = LoginForm.builder()
+                .pub(pub)
+                .value(value)
+                .type(type)
+                .clientId(clientId).build();
+        ValidationUtils.validate(loginForm);
+        return RespDTO.onSuc(loginService.login(loginForm));
+    }
 
-        if (Objects.equals(type, UserConstant.PWD_MODE)) {
-
-        } else if (Objects.equals(type, UserConstant.CODE_MODE)) {
-
-        }
-
-        return RespDTO.onSuc();
+    public static void main(String[] args) {
+        LoginForm loginForm = LoginForm.builder().value("value").type("phone").build();
+        ValidationUtils.validate(loginForm);
     }
 }

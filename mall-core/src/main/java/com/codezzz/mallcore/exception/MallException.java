@@ -7,17 +7,17 @@ import lombok.Getter;
  * @since 2021.05.10
  */
 @Getter
-public class DataFactoryException extends BaseException {
+public class MallException extends BaseException {
 
     private final ErrorCode error;
 
     private final Object[] args;
 
-    public DataFactoryException(ErrorCode error) {
+    public MallException(ErrorCode error) {
         this(error, (Object) null);
     }
 
-    public DataFactoryException(ErrorCode error, Object... args) {
+    public MallException(ErrorCode error, Object... args) {
         super(error, args);
         this.error = error;
         this.args = args;

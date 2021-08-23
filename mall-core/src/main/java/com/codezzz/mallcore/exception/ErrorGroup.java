@@ -11,7 +11,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorGroup {
 
-    GENERAL("通用信息", true)
+    GENERAL("通用信息", true),
+    USER("用户服务", true)
     ;
 
     private final String desc;

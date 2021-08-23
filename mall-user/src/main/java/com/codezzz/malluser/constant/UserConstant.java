@@ -17,4 +17,6 @@ public interface UserConstant {
      */
 
     String CODE_MODE = "code";
+
+    String CODE_PREFIX = "STRING:LOGINCODE:";
 }

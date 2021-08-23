@@ -32,15 +32,15 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestControllerAdvice
 @Order(1)
-public class DataFactoryExceptionHandler {
+public class MallExceptionHandler {
 
-    public DataFactoryExceptionHandler() {
+    public MallExceptionHandler() {
     }
 
     /*------------------------------------------------- DataFactoryException 和 BusinessException 的处理-----------------------------------------------------------------*/
 
-    @ExceptionHandler(DataFactoryException.class)
-    public ResponseEntity<RespDTO<?>> dataFactoryExceptionHandler(DataFactoryException ex, HttpServletRequest request) {
+    @ExceptionHandler(MallException.class)
+    public ResponseEntity<RespDTO<?>> dataFactoryExceptionHandler(MallException ex, HttpServletRequest request) {
         log.error("业务异常：{} {}", request.getMethod(), request.getRequestURI(), ex);
         ErrorCode error = ex.getError();
         String message = error.getMessage();

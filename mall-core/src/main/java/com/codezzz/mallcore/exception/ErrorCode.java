@@ -27,7 +27,11 @@ public enum ErrorCode implements BaseErrorCode {
     FILE_UPLOAD_FAILED(108, "文件上传失败", ErrorGroup.GENERAL),
     FILE_SIZE_EXCEED_LIMIT(109, "文件大小超出限制", ErrorGroup.GENERAL),
     RESOURCE_NOT_FOUND(110, "要查询的资源不存在", ErrorGroup.GENERAL),
-    EXCEL_PARSE_ERROR(111, "Excel文件解析失败", ErrorGroup.GENERAL)
+    EXCEL_PARSE_ERROR(111, "Excel文件解析失败", ErrorGroup.GENERAL),
+
+    /******************************* 用户异常 **********************************/
+
+    USER_NOT_FOUND(200, "用户不存在", ErrorGroup.USER)
     ;
 
     /**
