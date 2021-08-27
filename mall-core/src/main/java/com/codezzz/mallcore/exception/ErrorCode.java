@@ -31,7 +31,10 @@ public enum ErrorCode implements BaseErrorCode {
 
     /******************************* 用户异常 **********************************/
 
-    USER_NOT_FOUND(200, "用户不存在", ErrorGroup.USER)
+    USER_NOT_FOUND(200, "用户不存在或密码错误", ErrorGroup.USER),
+    TOKEN_VALID(201, "token 校验失败", ErrorGroup.USER),
+    TOKEN_GENERATE_FAILED(202, "token 生成失败", ErrorGroup.USER),
+    TOKEN_PARSE_FAILED(203, "token 解析失败", ErrorGroup.USER)
     ;
 
     /**

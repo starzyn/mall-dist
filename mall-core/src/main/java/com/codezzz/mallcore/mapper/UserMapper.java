@@ -2,6 +2,7 @@ package com.codezzz.mallcore.mapper;
 
 import com.codezzz.mallcore.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * (user)数据Mapper

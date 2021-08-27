@@ -18,5 +18,15 @@ public interface UserConstant {
 
     String CODE_MODE = "code";
 
+    /**
+     * redis 验证码前缀
+     */
     String CODE_PREFIX = "STRING:LOGINCODE:";
+
+    /**
+     * token存储key值
+     */
+    String USER_KEY = "uid";
+
+    String STATUS_NORMAL = "NORMAL";
 }

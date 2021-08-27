@@ -1,10 +1,12 @@
 package com.codezzz.mallcore.model.entity;
 
 import java.io.Serializable;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.util.Date;
+
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -17,16 +19,16 @@ import lombok.experimental.Accessors;
  * @description pojo
  */
 @Data
-@NoArgsConstructor
 @Accessors(chain = true)
 @TableName("user")
+@Builder
 public class User extends Model<User> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
      * id
      */
-    @TableId
+    @TableId(type = IdType.UUID)
 	private String id;
     /**
      * username
@@ -47,10 +49,12 @@ public class User extends Model<User> implements Serializable {
     /**
      * createdAt
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date createdAt;
     /**
      * status
      */
+    @TableField(fill = FieldFill.INSERT)
     private Integer status;
     /**
      * phoneNumber
