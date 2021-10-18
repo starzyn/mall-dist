@@ -1,16 +1,11 @@
 package com.codezzz.mallcore.util;
 
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import lombok.experimental.UtilityClass;
-import org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorContextImpl;
-import org.springframework.beans.BeanUtils;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -24,6 +19,7 @@ public class ValidationUtils {
     private static final String TEMPLATE = "%s : %s\n";
 
     Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+
     public static void validate(Object o, Class... classes) {
         Set<ConstraintViolation<Object>> res = validator.validate(o, classes);
         if (res == null || res.isEmpty()) {

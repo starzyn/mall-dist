@@ -15,9 +15,18 @@ spring:
     database: 0
     password: root
 
+#swagger:
 swagger:
   basePackage: com.codezzz.malluser.controller
 
-service-name: gateway
+# custom path for swagger-ui
+#springdoc:
+#  swagger-ui:
+#    path: doc.html
+#    operations-sorter: method
+#    #custom path for api docs
+#    url: /doc/openapi.json
+
+service-name: malluser
 
 service-prefix: api/${service-name}

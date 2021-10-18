@@ -7,7 +7,7 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>2.3.4.RELEASE</version>
+        <version>2.5.5</version>
     </parent>
 
     <groupId>com.codezzz</groupId>
@@ -45,6 +45,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
 </project>

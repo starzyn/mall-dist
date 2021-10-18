@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "eztest.base-response")
+//@ConfigurationProperties(prefix = "eztest.base-response")
 public class BaseRespProperties {
 
     /**

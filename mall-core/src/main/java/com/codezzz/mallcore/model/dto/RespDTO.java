@@ -8,6 +8,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ *  @author: zhan9yn
+ *  @Date: 2021/9/28 11:42 上午
+ *  @Description: 统一接口返回包装类
+ */
 public class RespDTO<T> {
 
     /**

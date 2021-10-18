@@ -32,7 +32,7 @@ public class SwaggerConfig {
                 "分布式商城",//简单的描述
                 "0.1",//版本
                 "服务条款",
-                "codezzz",//作者
+                "zhan9yn",//作者
                 "The Apache License, Version 2.0",//链接显示文字
                 "http://www.baidu.com"//网站链接
         );
