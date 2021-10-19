@@ -6,8 +6,10 @@ import com.codezzz.malluser.controller.vo.LoginForm;
 import com.codezzz.malluser.service.impl.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
 
 /**
  * @author codezzz
@@ -37,10 +39,10 @@ public class LoginController {
      * @author zhan9yn
      * @date 2021/9/27 2:38 下午
     */
-    public RespDTO<String> login(@RequestParam("pub") String pub,
-                                 @RequestParam("value") String value,
-                                 @RequestParam("type") String type,
-                                 @RequestParam("clientId") String clientId) {
+    public RespDTO<String> login(@ApiParam("用户名/手机") @RequestParam("pub") String pub,
+                                 @ApiParam("密码/验证码") @RequestParam("value") String value,
+                                 @ApiParam("登陆类型") @RequestParam("type") String type,
+                                 @ApiParam("客户端ID") @RequestParam("clientId") String clientId) {
         LoginForm loginForm = LoginForm.builder()
                 .pub(pub)
                 .value(value)

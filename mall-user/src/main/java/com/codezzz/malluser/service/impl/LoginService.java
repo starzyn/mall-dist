@@ -6,7 +6,6 @@ import com.codezzz.mallcore.exception.MallException;
 import com.codezzz.mallcore.model.entity.User;
 import com.codezzz.malluser.constant.UserConstant;
 import com.codezzz.malluser.controller.vo.LoginForm;
-import com.codezzz.malluser.service.UserService;
 import com.codezzz.malluser.util.TokenUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +33,15 @@ public class LoginService {
 
     private final UserService userService;
 
+    /** 
+     * @description: 登陆接口业务层
+     * @param: loginForm 
+     * @return: java.lang.String 
+     * @author zhan9yn
+     * @date: 2021/10/18 16:49
+     */
     public String login(LoginForm loginForm) {
+        User user;
         if (Objects.equals(UserConstant.CODE_MODE, loginForm.getType())) {
             String phone = loginForm.getPub();
             checkPhone(phone);
@@ -42,26 +49,30 @@ public class LoginService {
             if (!Objects.equals(code, loginForm.getValue())) {
                 throw new MallException(ErrorCode.PARAM_ERROR);
             }
-            User user = userService.getOne(new LambdaQueryWrapper<User>().eq(User::getPhoneNumber, phone));
+            user = userService.getOne(new LambdaQueryWrapper<User>().eq(User::getPhoneNumber, phone));
             if (Objects.isNull(user)) {
                 user = User.builder()
                         .nickname(generateNickName())
+                        //todo 密码未加盐
                         .password(generatePWD())
                         .username(generateNickName())
                         .phoneNumber(phone).build();
                 userService.save(user);
             }
             return TokenUtil.createToken(UserConstant.USER_KEY, user.getId());
-
         } else if (Objects.equals(UserConstant.PWD_MODE, loginForm.getType())) {
-            User user = userService.getOne(new LambdaQueryWrapper<User>()
+            user = userService.getOne(new LambdaQueryWrapper<User>()
                     .eq(User::getUsername, loginForm.getPub())
                     .eq(User::getPassword, loginForm.getValue()));
             if (Objects.isNull(user)) {
                 user = User.builder()
                     .nickname(generateNickName())
+                        //todo
                     .password(generatePWD())
-                    .username(loginForm.getValue()).build();
+                    .username(loginForm.getPub())
+                    .password(loginForm.getValue())
+                    .build();
+                userService.save(user);
             }
             return TokenUtil.createToken(UserConstant.USER_KEY, user.getId());
         }
