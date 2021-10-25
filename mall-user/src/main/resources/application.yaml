@@ -5,10 +5,10 @@ spring:
   application:
     name: mall-user
   datasource:
-    url: jdbc:mysql://localhost:3306/mall-dist?useUnicode=true&useSSL=false&characterEncoding=utf8
+    url: jdbc:mysql://39.102.83.104:23306/mall-dist?useUnicode=true&useSSL=false&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: tiger
   redis:
     host: http://localhost
     port: 6379

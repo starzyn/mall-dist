@@ -2,8 +2,6 @@ package com.codezzz.malluser.util;
 
 import com.codezzz.mallcore.exception.ErrorCode;
 import com.codezzz.mallcore.exception.MallException;
-import com.codezzz.mallcore.model.entity.User;
-import com.codezzz.mallcore.util.JsonMapper;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.RSASSASigner;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
@@ -13,21 +11,14 @@ import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.charset.Charset;
-import java.util.Base64;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.DeflaterOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-import java.util.zip.InflaterOutputStream;
 
 /**
  * @author codezzz

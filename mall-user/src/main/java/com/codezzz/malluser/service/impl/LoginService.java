@@ -3,7 +3,6 @@ package com.codezzz.malluser.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.codezzz.mallcore.exception.ErrorCode;
 import com.codezzz.mallcore.exception.MallException;
-import com.codezzz.mallcore.model.entity.User;
 import com.codezzz.malluser.constant.UserConstant;
 import com.codezzz.malluser.controller.vo.LoginForm;
 import com.codezzz.malluser.util.TokenUtil;
