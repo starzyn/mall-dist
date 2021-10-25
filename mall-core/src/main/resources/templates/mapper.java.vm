@@ -2,7 +2,7 @@ package com.codezzz.mallcore.mapper;
 
 import ${superMapperClassPackage};
 import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.isyscore.os.core.entity.${entity};
+import com.codezzz.mallcore.model.entity.${entity};
 import org.apache.ibatis.annotations.Param;
 
 /**

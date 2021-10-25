@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
@@ -28,6 +29,7 @@ public class CodeGenerator {
         String driverName = Objects.requireNonNull(properties.getProperty("driverName"));
         String username = Objects.requireNonNull(properties.getProperty("username"));
         String password = Objects.requireNonNull(properties.getProperty("password"));
+        Boolean serviceEnabled = Boolean.valueOf(Objects.requireNonNull(properties.getProperty("serviceEnabled")));
         //前缀
         String servicePrefix = Objects.requireNonNull(properties.getProperty("servicePrefix"));
         //后缀
@@ -47,6 +49,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir") + File.separator + servicePrefix + "-" + moduleName + serviceSuffix;
+        // ？
         String persistentPath = System.getProperty("user.dir") + File.separator + persistentPrefix;
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor(System.getProperty("user.name"));
@@ -77,7 +80,10 @@ public class CodeGenerator {
         pc.setModuleName(moduleName);
         pc.setParent(basePackage);
         pc.setMapper("mapper");
-        pc.setServiceImpl("service");
+
+        if (serviceEnabled) {
+            pc.setServiceImpl("service");
+        }
         generator.setPackageInfo(pc);
 
         // 自定义配置
@@ -102,33 +108,37 @@ public class CodeGenerator {
         focList.add(new FileOutConfig("/templates/mapper.java.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return javaSource + "/core/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_JAVA;
+                return javaSource + "/mapper/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_JAVA;
             }
         });
-        focList.add(new FileOutConfig("/templates/controller.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return projectPath + "/src/main/java/" + basePackage.replace(".", File.separator) + "/" + moduleName + "/controller/" + tableInfo.getEntityName() + "Controller" + StringPool.DOT_JAVA;
-            }
-        });
+
         focList.add(new FileOutConfig("/templates/entity.java.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return javaSource + "/core/entity/" + tableInfo.getEntityName() + StringPool.DOT_JAVA;
+                return javaSource + "/model/entity/" + tableInfo.getEntityName() + StringPool.DOT_JAVA;
             }
         });
-        focList.add(new FileOutConfig("/templates/service.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return javaSource + "/core/service/" + tableInfo.getEntityName() + "Service" + StringPool.DOT_JAVA;
-            }
-        });
-        focList.add(new FileOutConfig("/templates/serviceImpl.java.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return javaSource + "/core/service/impl/" + tableInfo.getEntityName() + "ServiceImpl" + StringPool.DOT_JAVA;
-            }
-        });
+
+
+//        focList.add(new FileOutConfig("/templates/service.java.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                return javaSource + "/core/service/" + tableInfo.getEntityName() + "Service" + StringPool.DOT_JAVA;
+//            }
+//        });
+//        focList.add(new FileOutConfig("/templates/serviceImpl.java.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                return javaSource + "/core/service/impl/" + tableInfo.getEntityName() + "ServiceImpl" + StringPool.DOT_JAVA;
+//            }
+//        });
+//
+//        focList.add(new FileOutConfig("/templates/controller.java.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                return projectPath + "/src/main/java/" + basePackage.replace(".", File.separator) + "/" + moduleName + "/controller/" + tableInfo.getEntityName() + "Controller" + StringPool.DOT_JAVA;
+//            }
+//        });
 
         cfg.setFileOutConfigList(focList);
         generator.setCfg(cfg);

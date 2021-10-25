@@ -1,64 +1,50 @@
 package com.codezzz.mallcore.model.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.time.LocalDateTime;
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.*;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.util.Date;
-
-import lombok.Builder;
+import javax.validation.constraints.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 /**
- * (user)实体类
+ * 
  *
  * @author zhangyn
- * @since 2021-08-20 11:51:57
- * @description pojo
+ * @since 2021-10-25
  */
 @Data
-@Accessors(chain = true)
-@TableName("user")
-@Builder
-public class User extends Model<User> implements Serializable {
+@ApiModel(description = "")
+public class User implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
-    /**
-     * id
-     */
-    @TableId(type = IdType.UUID)
-	private String id;
-    /**
-     * username
-     */
+    @NotNull(groups = ValidateUpdate.class)
+    @Null(groups = ValidateCreate.class)
+    private String id;
+
     private String username;
-    /**
-     * password
-     */
+
     private String password;
-    /**
-     * nickname
-     */
+
     private String nickname;
-    /**
-     * type
-     */
+
     private String type;
-    /**
-     * createdAt
-     */
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date createdAt;
-    /**
-     * status
-     */
-    @TableField(fill = FieldFill.INSERT)
+
+    @TableField(fill = FieldFill.INSERT, updateStrategy = FieldStrategy.NEVER)
+    private LocalDateTime createdAt;
+
     private Integer status;
-    /**
-     * phoneNumber
-     */
+
     private String phoneNumber;
+
+    @ApiModelProperty(value = "邀请码")
+    private String inviteCode;
+
+    @ApiModelProperty(value = "特权等级")
+    private String vipLevel;
 
 }
