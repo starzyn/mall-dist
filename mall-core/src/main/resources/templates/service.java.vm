@@ -1,6 +1,6 @@
-package com.codezzz.mallcore.service;
+package com.codezzz.core.service;
 
-import com.codezzz.mallcore.model.entity.${entity};
+${entity};
 import ${superServiceClassPackage};
 
 /**

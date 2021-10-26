@@ -19,6 +19,7 @@
         <module>mall-core</module>
         <module>mall-gateway</module>
         <module>mall-user</module>
+        <module>mall-goods</module>
     </modules>
 
     <properties>
