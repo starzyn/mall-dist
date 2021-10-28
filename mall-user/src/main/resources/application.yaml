@@ -19,6 +19,7 @@ spring:
 swagger:
   basePackage: com.codezzz.malluser.controller
 
+
 # custom path for swagger-ui
 #springdoc:
 #  swagger-ui:

@@ -10,7 +10,7 @@ import java.util.Set;
 
 /**
  * @author codezzz
- * @Description:
+ * @Description: 参数校验的工具类
  * @date 2021/8/23 14:27
  */
 @UtilityClass

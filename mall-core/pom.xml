@@ -125,6 +125,17 @@
             <!--<version>3.4.5</version>-->
         </dependency>
 
+        <!-- 数据库版本管理 依赖 -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
