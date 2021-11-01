@@ -1,8 +1,10 @@
 package com.codezzz.goods.api.controller;
 
 import com.codezzz.core.model.dto.RespDTO;
+import com.codezzz.core.model.entity.Product;
 import com.codezzz.goods.api.vo.ProductDetailVo;
 import com.codezzz.goods.api.vo.ProductItemVo;
+import com.codezzz.goods.api.vo.SKUVo;
 import com.codezzz.goods.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,8 +42,8 @@ public class GoodsController {
      * @author zhan9yn
      * @date: 2021/10/28 22:12
      */
-    public RespDTO<List<ProductItemVo>> list() {
-        return RespDTO.onSuc(productService.listAll());
+    public RespDTO<List<Product>> list() {
+        return RespDTO.onSuc(productService.list());
     }
 
 
@@ -56,7 +58,26 @@ public class GoodsController {
      * @date: 2021/10/31 22:44
      */
     public RespDTO<ProductDetailVo> detail(@ApiParam("商品ID") @PathVariable("id") String id) {
-        return RespDTO.onSuc();
+        return RespDTO.onSuc(productService.getProductDetail(id));
     }
+
+
+
+    @GetMapping("/{id}/sku")
+    /** 
+     * @description: 根据商品ID获取该商品的sku
+     * @param: id 
+     * @return: com.codezzz.core.model.dto.RespDTO<com.codezzz.goods.api.vo.SKUVo> 
+     * @author zhan9yn
+     * @date: 2021/11/1 22:05
+     */
+    public RespDTO<SKUVo> getSKU(@ApiParam("商品ID") @PathVariable("id") String id) {
+        return RespDTO.onSuc(null);
+
+    }
+
+
+
+
 
 }

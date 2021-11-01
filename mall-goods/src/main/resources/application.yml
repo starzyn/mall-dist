@@ -15,6 +15,7 @@ spring:
     password: root
   flyway:
     enabled: false
+    locations: classpath:goods
 
 #swagger:
 swagger:
