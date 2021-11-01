@@ -17,7 +17,7 @@ spring:
 
 #swagger:
 swagger:
-  basePackage: com.codezzz.malluser.controller
+  basePackage: com.codezzz.user.controller
 
 
 # custom path for swagger-ui

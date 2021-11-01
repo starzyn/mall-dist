@@ -1,2 +1,34 @@
 server:
   port: 20003
+spring:
+  application:
+    name: mall-goods
+  datasource:
+    url: jdbc:mysql://39.102.83.104:23306/mall-goods?useUnicode=true&useSSL=false&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: tiger
+  redis:
+    host: http://localhost
+    port: 6379
+    database: 0
+    password: root
+  flyway:
+    enabled: false
+
+#swagger:
+swagger:
+  basePackage: com.codezzz.goods.api.controller
+
+
+# custom path for swagger-ui
+#springdoc:
+#  swagger-ui:
+#    path: doc.html
+#    operations-sorter: method
+#    #custom path for api docs
+#    url: /doc/openapi.json
+
+service-name: mallgoods
+
+service-prefix: api/${service-name}
