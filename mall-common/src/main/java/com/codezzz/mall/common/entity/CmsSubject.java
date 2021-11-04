@@ -1,10 +1,7 @@
 package com.codezzz.mall.common.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.FieldStrategy;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
@@ -31,6 +28,7 @@ public class CmsSubject implements Serializable {
 
     private Long categoryId;
 
+    @TableField(SqlCondition.LIKE)
     private String title;
 
     @ApiModelProperty(value = "专题主图")
