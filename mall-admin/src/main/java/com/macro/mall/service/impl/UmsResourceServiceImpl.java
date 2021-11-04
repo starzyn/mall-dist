@@ -2,13 +2,12 @@ package com.macro.mall.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
-import com.macro.mall.common.constant.AuthConstant;
-import com.macro.mall.common.service.RedisService;
+import com.codezzz.mall.common.constant.AuthConstant;
+import com.codezzz.mall.common.service.RedisService;
 import com.macro.mall.mapper.UmsResourceMapper;
 import com.macro.mall.mapper.UmsRoleMapper;
 import com.macro.mall.mapper.UmsRoleResourceRelationMapper;
 import com.macro.mall.model.*;
-import com.macro.mall.service.UmsAdminCacheService;
 import com.macro.mall.service.UmsResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,7 +1,7 @@
 package com.macro.mall.portal.service;
 
-import com.macro.mall.common.api.CommonResult;
-import com.macro.mall.common.domain.UserDto;
+import com.codezzz.mall.common.api.CommonResult;
+import com.codezzz.mall.common.domain.UserDto;
 import com.macro.mall.model.UmsMember;
 import org.springframework.transaction.annotation.Transactional;
 

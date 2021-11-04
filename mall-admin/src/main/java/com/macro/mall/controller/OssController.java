@@ -1,7 +1,7 @@
 package com.macro.mall.controller;
 
 
-import com.macro.mall.common.api.CommonResult;
+import com.codezzz.mall.common.api.CommonResult;
 import com.macro.mall.dto.OssCallbackResult;
 import com.macro.mall.dto.OssPolicyResult;
 import com.macro.mall.service.impl.OssServiceImpl;

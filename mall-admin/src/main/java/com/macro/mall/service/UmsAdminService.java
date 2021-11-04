@@ -1,7 +1,7 @@
 package com.macro.mall.service;
 
-import com.macro.mall.common.api.CommonResult;
-import com.macro.mall.common.domain.UserDto;
+import com.codezzz.mall.common.api.CommonResult;
+import com.codezzz.mall.common.domain.UserDto;
 import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
 import com.macro.mall.model.*;

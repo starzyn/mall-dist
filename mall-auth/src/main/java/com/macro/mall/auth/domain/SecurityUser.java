@@ -1,6 +1,6 @@
 package com.macro.mall.auth.domain;
 
-import com.macro.mall.common.domain.UserDto;
+import com.codezzz.mall.common.domain.UserDto;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

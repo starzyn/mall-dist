@@ -1,6 +1,6 @@
 package com.macro.mall.portal.config;
 
-import com.macro.mall.common.config.BaseRedisConfig;
+import com.codezzz.mall.common.config.BaseRedisConfig;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;
 

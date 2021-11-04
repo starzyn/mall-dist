@@ -1,7 +1,7 @@
 package com.macro.mall.search.config;
 
-import com.macro.mall.common.config.BaseSwaggerConfig;
-import com.macro.mall.common.domain.SwaggerProperties;
+import com.codezzz.mall.common.config.BaseSwaggerConfig;
+import com.codezzz.mall.common.domain.SwaggerProperties;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 

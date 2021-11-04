@@ -1,6 +1,6 @@
 package com.macro.mall.auth.exception;
 
-import com.macro.mall.common.api.CommonResult;
+import com.codezzz.mall.common.api.CommonResult;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

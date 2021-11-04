@@ -1,7 +1,7 @@
 package com.macro.mall.portal.controller;
 
-import com.macro.mall.common.api.CommonPage;
-import com.macro.mall.common.api.CommonResult;
+import com.codezzz.mall.common.api.CommonPage;
+import com.codezzz.mall.common.api.CommonResult;
 import com.macro.mall.portal.domain.MemberProductCollection;
 import com.macro.mall.portal.service.MemberCollectionService;
 import io.swagger.annotations.Api;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 会员收藏管理Controller

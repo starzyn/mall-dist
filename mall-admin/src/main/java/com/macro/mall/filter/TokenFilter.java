@@ -1,8 +1,7 @@
 package com.macro.mall.filter;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.server.HttpServerRequest;
-import com.macro.mall.common.constant.AuthConstant;
+import com.codezzz.mall.common.constant.AuthConstant;
 import com.nimbusds.jose.JWSObject;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

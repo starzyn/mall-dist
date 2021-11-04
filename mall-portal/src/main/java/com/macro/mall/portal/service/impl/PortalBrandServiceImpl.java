@@ -1,7 +1,7 @@
 package com.macro.mall.portal.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.macro.mall.common.api.CommonPage;
+import com.codezzz.mall.common.api.CommonPage;
 import com.macro.mall.mapper.PmsBrandMapper;
 import com.macro.mall.mapper.PmsProductMapper;
 import com.macro.mall.model.PmsBrand;

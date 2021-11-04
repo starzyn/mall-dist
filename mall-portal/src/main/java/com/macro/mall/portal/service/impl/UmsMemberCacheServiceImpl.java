@@ -1,8 +1,7 @@
 package com.macro.mall.portal.service.impl;
 
-import com.macro.mall.common.annotation.CacheException;
-import com.macro.mall.common.service.RedisService;
-import com.macro.mall.mapper.UmsMemberMapper;
+import com.codezzz.mall.common.annotation.CacheException;
+import com.codezzz.mall.common.service.RedisService;
 import com.macro.mall.model.UmsMember;
 import com.macro.mall.portal.service.UmsMemberCacheService;
 import org.springframework.beans.factory.annotation.Autowired;

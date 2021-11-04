@@ -1,6 +1,6 @@
 package com.macro.mall.service.impl;
 
-import com.macro.mall.common.service.RedisService;
+import com.codezzz.mall.common.service.RedisService;
 import com.macro.mall.model.UmsAdmin;
 import com.macro.mall.service.UmsAdminCacheService;
 import com.macro.mall.service.UmsAdminService;

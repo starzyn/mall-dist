@@ -1,7 +1,7 @@
 package com.macro.mall.controller;
 
-import com.macro.mall.common.api.CommonPage;
-import com.macro.mall.common.api.CommonResult;
+import com.codezzz.mall.common.api.CommonPage;
+import com.codezzz.mall.common.api.CommonResult;
 import com.macro.mall.model.CmsSubject;
 import com.macro.mall.service.CmsSubjectService;
 import io.swagger.annotations.Api;

@@ -1,14 +1,13 @@
 package com.macro.mall.controller;
 
 import cn.hutool.core.collection.CollUtil;
-import com.macro.mall.common.api.CommonPage;
-import com.macro.mall.common.api.CommonResult;
-import com.macro.mall.common.domain.UserDto;
+import com.codezzz.mall.common.api.CommonPage;
+import com.codezzz.mall.common.api.CommonResult;
+import com.codezzz.mall.common.domain.UserDto;
 import com.macro.mall.dto.UmsAdminLoginParam;
 import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
 import com.macro.mall.model.UmsAdmin;
-import com.macro.mall.model.UmsPermission;
 import com.macro.mall.model.UmsRole;
 import com.macro.mall.service.UmsAdminService;
 import com.macro.mall.service.UmsRoleService;

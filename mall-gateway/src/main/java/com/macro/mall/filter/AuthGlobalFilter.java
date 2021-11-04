@@ -1,7 +1,7 @@
 package com.macro.mall.filter;
 
 import cn.hutool.core.util.StrUtil;
-import com.macro.mall.common.constant.AuthConstant;
+import com.codezzz.mall.common.constant.AuthConstant;
 import com.nimbusds.jose.JWSObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

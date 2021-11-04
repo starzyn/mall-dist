@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>com.macro.mall</groupId>
-            <artifactId>mall-mbg</artifactId>
+            <artifactId>mall-common</artifactId>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba.cloud</groupId>-->

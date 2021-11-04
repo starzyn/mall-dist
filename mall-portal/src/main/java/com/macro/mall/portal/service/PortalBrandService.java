@@ -1,6 +1,6 @@
 package com.macro.mall.portal.service;
 
-import com.macro.mall.common.api.CommonPage;
+import com.codezzz.mall.common.api.CommonPage;
 import com.macro.mall.model.PmsBrand;
 import com.macro.mall.model.PmsProduct;
 

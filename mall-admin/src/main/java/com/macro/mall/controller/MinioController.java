@@ -2,7 +2,7 @@ package com.macro.mall.controller;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
-import com.macro.mall.common.api.CommonResult;
+import com.codezzz.mall.common.api.CommonResult;
 import com.macro.mall.dto.BucketPolicyConfigDto;
 import com.macro.mall.dto.MinioUploadDto;
 import io.minio.*;
