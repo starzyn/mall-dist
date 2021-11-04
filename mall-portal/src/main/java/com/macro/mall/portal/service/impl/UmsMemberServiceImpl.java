@@ -132,7 +132,9 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public UmsMember getCurrentMember() {
-        String userStr = request.getHeader(AuthConstant.USER_TOKEN_HEADER);
+        final String token = request.getHeader(AuthConstant.JWT_TOKEN_HEADER);
+        String userStr = token.split(" ")[1];
+//        String userStr = request.getHeader(AuthConstant.USER_TOKEN_HEADER);
         if(StrUtil.isEmpty(userStr)){
             Asserts.fail(ResultCode.UNAUTHORIZED);
         }

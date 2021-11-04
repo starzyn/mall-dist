@@ -250,7 +250,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public UmsAdmin getCurrentAdmin() {
-        String userStr = request.getHeader(AuthConstant.USER_TOKEN_HEADER);
+        String userStr = (String) request.getAttribute(AuthConstant.JWT_TOKEN_HEADER);
         if(StrUtil.isEmpty(userStr)){
             Asserts.fail(ResultCode.UNAUTHORIZED);
         }

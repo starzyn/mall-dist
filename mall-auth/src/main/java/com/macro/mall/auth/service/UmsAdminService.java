@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by macro on 2019/10/18.
  */
-@FeignClient("mall-admin")
+@FeignClient(value = "mall-admin", url = "http://localhost:8080")
 public interface UmsAdminService {
 
     @GetMapping("/admin/loadByUsername")
