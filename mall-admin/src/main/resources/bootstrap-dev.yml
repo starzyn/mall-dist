@@ -6,3 +6,6 @@
 #      config:
 #        server-addr: http://localhost:8848
 #        file-extension: yaml
+spring:
+  flyway:
+    enabled: false

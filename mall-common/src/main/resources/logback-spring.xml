@@ -215,7 +215,7 @@
         <appender-ref ref="LOG_STASH_RECORD"/>
     </logger>
 
-    <logger name="com.macro.mall" level="DEBUG">
+    <logger name="com.codezzz.mall" level="DEBUG">
         <appender-ref ref="LOG_STASH_BUSINESS"/>
     </logger>
 </configuration>

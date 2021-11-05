@@ -1,11 +1,11 @@
-package com.macro.mall;
+package com.codezzz.mall;
 
 
 import cn.hutool.json.JSONUtil;
-import com.macro.mall.dao.PmsMemberPriceDao;
-import com.macro.mall.dao.PmsProductDao;
-import com.macro.mall.dto.PmsProductResult;
-import com.macro.mall.model.PmsMemberPrice;
+import com.codezzz.mall.dao.PmsMemberPriceDao;
+import com.codezzz.mall.dao.PmsProductDao;
+import com.codezzz.mall.dto.PmsProductResult;
+import com.codezzz.mall.model.PmsMemberPrice;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
