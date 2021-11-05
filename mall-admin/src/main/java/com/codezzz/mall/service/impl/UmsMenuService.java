@@ -1,27 +1,27 @@
-//package com.codezzz.mall.service.impl;
-//
-//import com.github.pagehelper.PageHelper;
-//import com.codezzz.mall.dto.UmsMenuNode;
-//import com.codezzz.mall.mapper.UmsMenuMapper;
-//import com.codezzz.mall.model.*;
-//import com.codezzz.mall.service.UmsMenuService;
-//import org.springframework.beans.BeanUtils;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.Date;
-//import java.util.List;
-//import java.util.stream.Collectors;
-//
-///**
-// * 后台菜单管理Service实现类
-// * Created by macro on 2020/2/2.
-// */
-//@Service
-//public class UmsMenuServiceImpl implements UmsMenuService {
-//    @Autowired
-//    private UmsMenuMapper menuMapper;
-//
+package com.codezzz.mall.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.codezzz.mall.common.entity.UmsMenu;
+import com.codezzz.mall.common.mapper.UmsMenuMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * 后台菜单管理Service实现类
+ * Created by macro on 2020/2/2.
+ */
+@Service
+@RequiredArgsConstructor
+public class UmsMenuService extends ServiceImpl<UmsMenuMapper, UmsMenu> {
+
+    private final UmsMenuMapper menuMapper;
+
+    public List<UmsMenu> getMenuList(Long adminId) {
+        return menuMapper.getMenuList(adminId);
+    }
+
 //    @Override
 //    public int create(UmsMenu umsMenu) {
 //        umsMenu.setCreateTime(new Date());
@@ -102,4 +102,4 @@
 //        node.setChildren(children);
 //        return node;
 //    }
-//}
+}

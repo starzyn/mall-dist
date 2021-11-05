@@ -19,4 +19,5 @@ public interface UmsRoleMapper extends BaseMapper<UmsRole> {
      * @return 受影响的数据量
      */
     int alwaysUpdateSomeColumnById(@Param(Constants.ENTITY) UmsRole entity);
+
 }

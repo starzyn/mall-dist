@@ -1,18 +1,26 @@
 package com.codezzz.mall.service.impl;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.codezzz.mall.common.entity.UmsMenu;
 import com.codezzz.mall.common.entity.UmsRole;
+import com.codezzz.mall.common.entity.UmsRoleMenuRelation;
 import com.codezzz.mall.common.mapper.UmsRoleMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 后台角色管理Service实现类
  * Created by macro on 2018/9/30.
  */
 @Service
+@RequiredArgsConstructor
 public class UmsRoleService extends ServiceImpl<UmsRoleMapper, UmsRole> {
 
-//    @Autowired
+    private UmsRoleMenuRelationService roleMenuRelationService;
+
 //    private UmsRoleMenuRelationMapper roleMenuRelationMapper;
 //    @Autowired
 //    private UmsRoleResourceRelationMapper roleResourceRelationMapper;
@@ -60,6 +68,7 @@ public class UmsRoleService extends ServiceImpl<UmsRoleMapper, UmsRole> {
 //
 //    @Override
 //    public List<UmsMenu> getMenuList(Long adminId) {
+//        Long roleId = this.getOne(Wrappers.lambdaQuery(new UmsRole()).eq(Um))
 //        return roleDao.getMenuList(adminId);
 //    }
 //

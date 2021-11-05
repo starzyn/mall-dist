@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.codezzz.mall.common.entity.UmsMenu;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * 后台菜单表 Mapper 接口
@@ -19,4 +22,7 @@ public interface UmsMenuMapper extends BaseMapper<UmsMenu> {
      * @return 受影响的数据量
      */
     int alwaysUpdateSomeColumnById(@Param(Constants.ENTITY) UmsMenu entity);
+
+    @Select("SELECT id, parent_id, create_time, title, `level`, sort, `name`, icon, hidden FROM ums_menu WHERE id IN ( SELECT menu_id FROM ums_role_menu_relation WHERE role_id IN ( SELECT role_id FROM ums_admin_role_relation WHERE admin_id = #{adminId} ) )")
+    List<UmsMenu> getMenuList(@Param("adminId") Long adminId);
 }

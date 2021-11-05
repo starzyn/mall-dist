@@ -1,17 +1,25 @@
 package com.codezzz.mall.controller;
 
+import cn.hutool.core.collection.CollUtil;
 import com.codezzz.mall.common.api.CommonResult;
 import com.codezzz.mall.common.domain.UserDto;
 import com.codezzz.mall.common.entity.UmsAdmin;
+import com.codezzz.mall.common.entity.UmsRole;
 import com.codezzz.mall.dto.UmsAdminLoginParam;
 import com.codezzz.mall.dto.UmsAdminParam;
 import com.codezzz.mall.service.impl.UmsAdminService;
+import com.codezzz.mall.service.impl.UmsMenuService;
 import com.codezzz.mall.service.impl.UmsRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 后台用户管理
@@ -24,6 +32,8 @@ public class UmsAdminController {
 
     private final UmsAdminService adminService;
     private final UmsRoleService roleService;
+
+    private final UmsMenuService menuService;
 
     @ApiOperation(value = "用户注册")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -43,22 +53,22 @@ public class UmsAdminController {
         return adminService.login(umsAdminLoginParam.getUsername(),umsAdminLoginParam.getPassword());
     }
 
-//    @ApiOperation(value = "获取当前登录用户信息")
-//    @RequestMapping(value = "/info", method = RequestMethod.GET)
-//    @ResponseBody
-//    public CommonResult getAdminInfo() {
-//        UmsAdmin umsAdmin = adminService.getCurrentAdmin();
-//        Map<String, Object> data = new HashMap<>();
-//        data.put("username", umsAdmin.getUsername());
-//        data.put("menus", roleService.getMenuList(umsAdmin.getId()));
-//        data.put("icon", umsAdmin.getIcon());
-//        List<UmsRole> roleList = adminService.getRoleList(umsAdmin.getId());
-//        if(CollUtil.isNotEmpty(roleList)){
-//            List<String> roles = roleList.stream().map(UmsRole::getName).collect(Collectors.toList());
-//            data.put("roles",roles);
-//        }
-//        return CommonResult.success(data);
-//    }
+    @ApiOperation(value = "获取当前登录用户信息")
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult getAdminInfo() {
+        UmsAdmin umsAdmin = adminService.getCurrentAdmin();
+        Map<String, Object> data = new HashMap<>();
+        data.put("username", umsAdmin.getUsername());
+        data.put("menus", menuService.getMenuList(umsAdmin.getId()));
+        data.put("icon", umsAdmin.getIcon());
+        List<UmsRole> roleList = adminService.getRoleList(umsAdmin.getId());
+        if(CollUtil.isNotEmpty(roleList)){
+            List<String> roles = roleList.stream().map(UmsRole::getName).collect(Collectors.toList());
+            data.put("roles",roles);
+        }
+        return CommonResult.success(data);
+    }
 //
 //    @ApiOperation(value = "登出功能")
 //    @RequestMapping(value = "/logout", method = RequestMethod.POST)

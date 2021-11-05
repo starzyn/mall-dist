@@ -3,6 +3,7 @@ package com.codezzz.mall.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.BCrypt;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.codezzz.mall.common.api.CommonResult;
@@ -239,21 +240,20 @@ public class UmsAdminService extends ServiceImpl<UmsAdminMapper, UmsAdmin> {
         }
         return null;
     }
-//
-//    @Override
-//    public UmsAdmin getCurrentAdmin() {
-//        String userStr = (String) request.getAttribute(AuthConstant.JWT_TOKEN_HEADER);
-//        if(StrUtil.isEmpty(userStr)){
-//            Asserts.fail(ResultCode.UNAUTHORIZED);
-//        }
-//        UserDto userDto = JSONUtil.toBean(userStr, UserDto.class);
-//        UmsAdmin admin = adminCacheService.getAdmin(userDto.getId());
-//        if(admin!=null){
-//            return admin;
-//        }else{
-//            admin = adminMapper.selectByPrimaryKey(userDto.getId());
-//            adminCacheService.setAdmin(admin);
-//            return admin;
-//        }
-//    }
+
+    public UmsAdmin getCurrentAdmin() {
+        String userStr = (String) request.getAttribute(AuthConstant.USER_TOKEN_HEADER);
+        if(StrUtil.isEmpty(userStr)){
+            Asserts.fail(ResultCode.UNAUTHORIZED);
+        }
+        UserDto userDto = JSONUtil.toBean(userStr, UserDto.class);
+        UmsAdmin admin = adminCacheService.getAdmin(userDto.getId());
+        if(admin!=null){
+            return admin;
+        }else{
+            admin = this.getById(userDto.getId());
+            adminCacheService.setAdmin(admin);
+            return admin;
+        }
+    }
 }
