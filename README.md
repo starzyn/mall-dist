@@ -78,3 +78,10 @@ mall
 
 
 本项目基于开源项目 `https://github.com/macrozheng/mall-swarm.git` 进行二次开发，仅供学习使用，严格遵循开源许可 Apache License 2.0
+
+----
+
+近期计划
+- 重构项目，把 mybatis 替换成 mybatis plus, 来减少简单的 CURD 业务代码 [x]
+- 平滑替换掉 gateway, 在项目中，gateway 仅仅做了黑白，请求再加工等功能，理论上可以使用更轻量级的组件来替换掉 [x]
+- 后台服务稳定后，着重把精力放在前台项目，后续前台服务的功能点需要进行优化和迭代，待定 [x]
