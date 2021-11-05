@@ -29,6 +29,10 @@ spring:
     multipart:
       enabled: true #开启文件上传
       max-file-size: 10MB #限制文件上传大小为10M
+  jackson:
+    deserialization:
+      ACCEPT_EMPTY_STRING_AS_NULL_OBJECT: true
+      ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT: true
 mybatis:
   mapper-locations:
     - classpath:dao/*.xml
