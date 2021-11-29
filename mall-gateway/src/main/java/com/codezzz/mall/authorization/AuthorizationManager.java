@@ -100,5 +100,4 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
                 .map(AuthorizationDecision::new)
                 .defaultIfEmpty(new AuthorizationDecision(false));
     }
-
 }

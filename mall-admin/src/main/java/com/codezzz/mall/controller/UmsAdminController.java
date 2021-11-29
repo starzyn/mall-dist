@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 public class UmsAdminController {
 
     private final UmsAdminService adminService;
+
     private final UmsRoleService roleService;
 
     private final UmsMenuService menuService;

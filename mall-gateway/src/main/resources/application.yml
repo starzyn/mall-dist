@@ -48,8 +48,11 @@ spring:
     port: 6699
     host: ${ip}
     password:
+  main:
+    allow-bean-definition-overriding: true
 secure:
   ignore:
+    abc: asdfasdf
     urls: #配置白名单路径
       - "/doc.html"
       - "/swagger-resources/**"
