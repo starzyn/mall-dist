@@ -4,7 +4,9 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.BCrypt;
 import cn.hutool.json.JSONUtil;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.codezzz.mall.common.api.CommonResult;
 import com.codezzz.mall.common.api.ResultCode;
@@ -18,6 +20,7 @@ import com.codezzz.mall.common.exception.Asserts;
 import com.codezzz.mall.common.mapper.UmsAdminMapper;
 import com.codezzz.mall.dto.UmsAdminParam;
 import com.codezzz.mall.service.AuthService;
+import com.github.pagehelper.PageHelper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -124,17 +127,6 @@ public class UmsAdminService extends ServiceImpl<UmsAdminMapper, UmsAdmin> {
 //        return adminMapper.selectByPrimaryKey(id);
 //    }
 //
-//    @Override
-//    public List<UmsAdmin> list(String keyword, Integer pageSize, Integer pageNum) {
-//        PageHelper.startPage(pageNum, pageSize);
-//        UmsAdminExample example = new UmsAdminExample();
-//        UmsAdminExample.Criteria criteria = example.createCriteria();
-//        if (!StringUtils.isEmpty(keyword)) {
-//            criteria.andUsernameLike("%" + keyword + "%");
-//            example.or(example.createCriteria().andNickNameLike("%" + keyword + "%"));
-//        }
-//        return adminMapper.selectByExample(example);
-//    }
 //
 //    @Override
 //    public int update(Long id, UmsAdmin admin) {

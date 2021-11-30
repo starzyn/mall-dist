@@ -1,27 +1,28 @@
-//package com.codezzz.mall.controller;
-//
-//import com.codezzz.mall.common.api.CommonPage;
-//import com.codezzz.mall.common.api.CommonResult;
-//import com.codezzz.mall.model.*;
-//import com.codezzz.mall.service.UmsRoleService;
-//import io.swagger.annotations.Api;
-//import io.swagger.annotations.ApiOperation;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-///**
-// * 后台用户角色管理
-// * Created by macro on 2018/9/30.
-// */
-//@Controller
-//@Api(tags = "UmsRoleController", description = "后台用户角色管理")
-//@RequestMapping("/role")
-//public class UmsRoleController {
-//    @Autowired
-//    private UmsRoleService roleService;
+package com.codezzz.mall.controller;
+
+import com.codezzz.mall.common.api.CommonPage;
+import com.codezzz.mall.common.api.CommonResult;
+import com.codezzz.mall.common.entity.UmsRole;
+import com.codezzz.mall.service.impl.UmsRoleService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * 后台用户角色管理
+ */
+@RestController
+@Api(tags = "后台用户角色管理")
+@RequestMapping("/role")
+@RequiredArgsConstructor
+public class UmsRoleController {
+
+    private final UmsRoleService roleService;
 //
 //    @ApiOperation("添加角色")
 //    @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -33,7 +34,7 @@
 //        }
 //        return CommonResult.failed();
 //    }
-//
+
 //    @ApiOperation("修改角色")
 //    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 //    @ResponseBody
@@ -55,15 +56,15 @@
 //        }
 //        return CommonResult.failed();
 //    }
-//
-//    @ApiOperation("获取所有角色")
-//    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
-//    @ResponseBody
-//    public CommonResult<List<UmsRole>> listAll() {
-//        List<UmsRole> roleList = roleService.list();
-//        return CommonResult.success(roleList);
-//    }
-//
+
+    @ApiOperation("获取所有角色")
+    @RequestMapping(value = "/listAll", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<List<UmsRole>> listAll() {
+        List<UmsRole> roleList = roleService.list();
+        return CommonResult.success(roleList);
+    }
+
 //    @ApiOperation("根据角色名称分页获取角色列表")
 //    @RequestMapping(value = "/list", method = RequestMethod.GET)
 //    @ResponseBody
@@ -118,5 +119,5 @@
 //        int count = roleService.allocResource(roleId, resourceIds);
 //        return CommonResult.success(count);
 //    }
-//
-//}
+
+}

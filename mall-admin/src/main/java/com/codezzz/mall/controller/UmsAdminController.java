@@ -1,6 +1,9 @@
 package com.codezzz.mall.controller;
 
 import cn.hutool.core.collection.CollUtil;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.codezzz.mall.common.api.CommonResult;
 import com.codezzz.mall.common.domain.UserDto;
 import com.codezzz.mall.common.entity.UmsAdmin;
@@ -72,21 +75,25 @@ public class UmsAdminController {
     }
 
     @ApiOperation(value = "登出功能")
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @PostMapping(value = "/logout")
     @ResponseBody
     public CommonResult logout() {
+        //todo
+        //清理token
         return CommonResult.success(null);
     }
-//
-//    @ApiOperation("根据用户名或姓名分页获取用户列表")
-//    @RequestMapping(value = "/list", method = RequestMethod.GET)
-//    @ResponseBody
-//    public CommonResult<CommonPage<UmsAdmin>> list(@RequestParam(value = "keyword", required = false) String keyword,
-//                                                   @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-//                                                   @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
-//        List<UmsAdmin> adminList = adminService.list(keyword, pageSize, pageNum);
-//        return CommonResult.success(CommonPage.restPage(adminList));
-//    }
+
+    @ApiOperation("根据用户名或姓名分页获取用户列表")
+    @GetMapping(value = "/list")
+    @ResponseBody
+    public CommonResult<IPage<UmsAdmin>> list(@RequestParam(value = "keyword", required = false) String keyword,
+                                              @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                              @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum) {
+        Page<UmsAdmin> page = new Page<>();
+        page.setSize(pageSize);
+        page.setCurrent(pageNum);
+        return CommonResult.success(adminService.page(page, Wrappers.lambdaQuery(new UmsAdmin()).like(UmsAdmin::getUsername, keyword)));
+    }
 //
 //    @ApiOperation("获取指定用户信息")
 //    @RequestMapping(value = "/{id}", method = RequestMethod.GET)

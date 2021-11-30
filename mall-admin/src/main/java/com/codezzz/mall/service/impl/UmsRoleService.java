@@ -6,6 +6,8 @@ import com.codezzz.mall.common.entity.UmsMenu;
 import com.codezzz.mall.common.entity.UmsRole;
 import com.codezzz.mall.common.entity.UmsRoleMenuRelation;
 import com.codezzz.mall.common.mapper.UmsRoleMapper;
+import com.codezzz.mall.common.mapper.UmsRoleMenuRelationMapper;
+import com.codezzz.mall.common.mapper.UmsRoleResourceRelationMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,22 +15,22 @@ import java.util.List;
 
 /**
  * 后台角色管理Service实现类
- * Created by macro on 2018/9/30.
  */
 @Service
 @RequiredArgsConstructor
 public class UmsRoleService extends ServiceImpl<UmsRoleMapper, UmsRole> {
 
-    private UmsRoleMenuRelationService roleMenuRelationService;
-
+//    private final UmsRoleMenuRelationService roleMenuRelationService;
+//
 //    private UmsRoleMenuRelationMapper roleMenuRelationMapper;
-//    @Autowired
-//    private UmsRoleResourceRelationMapper roleResourceRelationMapper;
-//    @Autowired
-//    private UmsRoleDao roleDao;
-//    @Autowired
-//    private UmsResourceService resourceService;
-//    @Override
+//
+//    private final UmsRoleResourceRelationMapper roleResourceRelationMapper;
+//
+//
+//    private final UmsRoleMapper roleDao;
+//
+//    private final UmsResourceService resourceService;
+//
 //    public int create(UmsRole role) {
 //        role.setCreateTime(new Date());
 //        role.setAdminCount(0);
