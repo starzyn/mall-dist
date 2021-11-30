@@ -42,7 +42,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: 'http://localhost:8201/mall-auth/rsa/publicKey' #配置RSA的公钥访问地址
+          jwk-set-uri: 'http://localhost:8401/rsa/publicKey' #配置RSA的公钥访问地址
   redis:
     database: 0
     port: 6699
@@ -52,7 +52,6 @@ spring:
     allow-bean-definition-overriding: true
 secure:
   ignore:
-    abc: asdfasdf
     urls: #配置白名单路径
       - "/doc.html"
       - "/swagger-resources/**"

@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = "com.codezzz.mall")
+@SpringBootApplication
 public class MallAuthApplication {
 
     public static void main(String[] args) {

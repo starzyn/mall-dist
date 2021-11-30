@@ -86,7 +86,7 @@ public class UmsAdminService extends ServiceImpl<UmsAdminMapper, UmsAdmin> {
         params.put("username",username);
         params.put("password",password);
         CommonResult restResult = authService.getAccessToken(params);
-        if(ResultCode.SUCCESS.getCode()==restResult.getCode()&&restResult.getData()!=null){
+        if(Objects.equals(ResultCode.SUCCESS.getCode(), restResult.getCode()) && restResult.getData()!=null){
 //            updateLoginTimeByUsername(username);
             insertLoginLog(username);
         }
