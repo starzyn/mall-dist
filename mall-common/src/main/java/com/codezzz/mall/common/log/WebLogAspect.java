@@ -31,7 +31,6 @@ import java.util.Map;
 
 /**
  * 统一日志处理切面
- * Created by macro on 2018/4/26.
  */
 @Aspect
 @Component
@@ -39,7 +38,7 @@ import java.util.Map;
 public class WebLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 
-    @Pointcut("execution(public * com.macro.mall.controller.*.*(..))||execution(public * com.macro.mall.*.controller.*.*(..))")
+    @Pointcut("execution(public * com.codezzz.mall.*.controller.*.*(..))")
     public void webLog() {
     }
 

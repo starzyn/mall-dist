@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 全局异常处理
- * Created by macro on 2020/2/27.
+ * <p>
+ *     针对于自定义异常，需要返回给前端提示
+ * </p>
+ *
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

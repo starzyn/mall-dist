@@ -1,10 +1,7 @@
 package com.codezzz.mall.common.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.FieldStrategy;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
@@ -33,6 +30,7 @@ public class UmsResource implements Serializable {
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "资源名称")
+    @TableField(condition = SqlCondition.LIKE)
     private String name;
 
     @ApiModelProperty(value = "资源URL")

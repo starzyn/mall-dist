@@ -3,8 +3,10 @@ package com.codezzz.mall.common.exception;
 import com.codezzz.mall.common.api.IErrorCode;
 
 /**
- * 自定义API异常
- * Created by macro on 2020/2/27.
+ * <p>
+ *     自定义 API 异常，运行时异常
+ * </p>
+ *
  */
 public class ApiException extends RuntimeException {
     private IErrorCode errorCode;
