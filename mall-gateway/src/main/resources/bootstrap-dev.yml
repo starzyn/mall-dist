@@ -1,8 +1,14 @@
+nacos:
+  url: ${ip}:8848
+  namespace: public
 spring:
   cloud:
     nacos:
       discovery:
-        server-addr: http://192.168.10.10:8848
+        server-addr: ${nacos.url}
+        namespace: ${nacos.namespace}
+        metadata:
+          version: 1.0
 #      config:
 #        server-addr: http://localhost:8848
 #        file-extension: yaml
