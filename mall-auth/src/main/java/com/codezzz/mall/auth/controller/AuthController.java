@@ -50,9 +50,4 @@ public class AuthController {
 
         return CommonResult.success(oauth2TokenDto);
     }
-
-    @GetMapping("/test")
-    public String test() {
-        return "testApi";
-    }
 }
