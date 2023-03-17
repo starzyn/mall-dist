@@ -16,4 +16,4 @@ spring:
       stat-view-servlet: #访问监控网页的登录用户名和密码
         login-username: druid
         login-password: druid
-ip: 172.16.11.6
+ip: 172.16.11.38

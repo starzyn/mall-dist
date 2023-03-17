@@ -50,4 +50,5 @@ public class AuthController {
 
         return CommonResult.success(oauth2TokenDto);
     }
+
 }
